@@ -2,7 +2,9 @@ package testcases;
 
 import org.openqa.selenium.WebDriver;
 
+import flows.Flights;
 import flows.Register;
+import flows.SelectFlightDepartReturn;
 import flows.SignOn;
 import infrastructure.Setup;
 
@@ -30,6 +32,14 @@ public class TC1_RegisterAndBookFlight {
 			signin.signin(driver);
 			*/
 			
+			//Flight Finder
+			Flights flights = new Flights();
+			flights.flightFinder(driver);
+			
+			//Select Flight
+			new SelectFlightDepartReturn().departFlight(driver);
+			new SelectFlightDepartReturn().continueFlight(driver);;
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();
