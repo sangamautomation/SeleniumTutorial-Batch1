@@ -10,7 +10,9 @@ public class TC1_RegisterAndBookFlight {
 
 	public static void main(String[] args) {
 		
+		//Variable Declarations
 		WebDriver driver = null;
+		
 		try {
 			Setup setup = new Setup();
 			String url = "http://www.newtours.demoaut.com/";
