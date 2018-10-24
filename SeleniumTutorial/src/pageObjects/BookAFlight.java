@@ -20,7 +20,7 @@ public class BookAFlight {
 	public static final String dropdown_CreditCardType = "//select[contains(@name,'creditCard')]";
 	public static final String dropdown_CreditCardExpirationMonth = "//select[contains(@name,'cc_exp_dt_mn')]";
 	public static final String dropdown_CreditCardExpirationYear = "//select[contains(@name,'cc_exp_dt_yr')]";
-	public static final String dropdown_CreditCardNumber = "//input[contains(@name,'creditnumber')]";
+	public static final String textBox_CreditCardNumber = "//input[contains(@name,'creditnumber')]";
 	public static final String checkbox_TicketlessTravel = "//table/tbody/tr[9]/td[2]//input[contains(@name,'ticketLess') and contains(@value,'checkbox')]";
 	public static final String button_SecurePurchase = "//input[@name='buyFlights']";
 
