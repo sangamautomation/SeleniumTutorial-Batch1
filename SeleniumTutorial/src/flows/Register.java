@@ -50,10 +50,10 @@ String expectedUserName ="Username2";
 	driver.findElement(By.xpath(Registration.textBox_ConfirmPassword)).sendKeys("password123");
 	driver.findElement(By.xpath(Registration.button_Submit)).click();
 
-	//Synchronization
-//	Thread.sleep(5000);//Static wait
+	//Synchronization methods
+//	Thread.sleep(5000);//Static wait for 5 seconds
 //	driver.manage().wait(5000);//Static wait
-	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);//Implicit wait
+	driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);//Implicit wait
 //	WebDriverWait webwait = new WebDriverWait(driver, 10); // Explicit Wait/Dynamic Wait (Waits for a particular element for a conditions) 
 //		webwait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[contains(@name,'firstName')]")));
 	

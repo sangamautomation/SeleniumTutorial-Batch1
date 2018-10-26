@@ -3,6 +3,7 @@ package testcases;
 import org.openqa.selenium.WebDriver;
 
 import flows.BookAFlightValidatePrice;
+import flows.FlightConfirmationValidation;
 import flows.Flights;
 import flows.Register;
 import flows.SelectFlightDepartReturn;
@@ -45,6 +46,9 @@ public class TC1_RegisterAndBookFlight {
 			BookAFlightValidatePrice.validatePrice(driver);
 			BookAFlightValidatePrice.passengersInfo(driver);
 			BookAFlightValidatePrice.creditCardInfo(driver);
+			
+			//Flight Confirmation
+			FlightConfirmationValidation.validateFlightConfirmation(driver);
 			
 			
 		} catch (Exception e) {
