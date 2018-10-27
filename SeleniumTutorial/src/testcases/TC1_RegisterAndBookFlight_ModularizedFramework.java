@@ -10,7 +10,7 @@ import flows.SelectFlightDepartReturn;
 import flows.SignOn;
 import infrastructure.Setup;
 
-public class TC1_RegisterAndBookFlight {
+public class TC1_RegisterAndBookFlight_ModularizedFramework {
 
 	public static void main(String[] args) {
 		
@@ -55,7 +55,7 @@ public class TC1_RegisterAndBookFlight {
 			e.printStackTrace();
 		}
 		finally{
-	//		driver.close();
+			driver.close();
 		}
 
 		

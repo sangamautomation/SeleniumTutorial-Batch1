@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Selenium2Example {
+public class TC0_SeleniumGoogleExample_LinearFramwork {
 
 	public static void main(String[] args) throws Exception {
 
