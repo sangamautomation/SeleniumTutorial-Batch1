@@ -2,19 +2,23 @@ package pageFlows;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import infrastructure.Operations;
 import pageObjects.FlightConfirmation;
 
 public class FlightConfirmationValidation {
 	
+	Operations op = new Operations();
 	
-	public static void validateFlightConfirmation(WebDriver driver){
-	
+	public void validateFlightConfirmation(WebDriver driver){
+	System.out.println("\n********************** validateFlightConfirmation **********************\n");
 	// Capturing the text
-	String departFlightPrice = driver.findElement(By.xpath(FlightConfirmation.text_DepartFlightPrice)).getText();
-	String returnFlightPrice = driver.findElement(By.xpath(FlightConfirmation.text_ReturnFlightPrice)).getText();
-	String noOfPassengers = driver.findElement(By.xpath(FlightConfirmation.text_NoOfPassenger)).getText();
-	String tax = driver.findElement(By.xpath(FlightConfirmation.text_Tax)).getText();
-	String totalPrice = driver.findElement(By.xpath(FlightConfirmation.text_TotalPrice)).getText();
+	String departFlightPrice = op.getText(driver, FlightConfirmation.text_DepartFlightPrice);
+	String returnFlightPrice = op.getText(driver, FlightConfirmation.text_ReturnFlightPrice);
+	String noOfPassengers = op.getText(driver, FlightConfirmation.text_NoOfPassenger);
+	String tax = op.getText(driver, FlightConfirmation.text_Tax);
+	String totalPrice = op.getText(driver, FlightConfirmation.text_TotalPrice);
+
 	
 	System.out.println("departFlightPrice = "+departFlightPrice);
 	System.out.println("returnFlightPrice = "+returnFlightPrice);
@@ -77,7 +81,7 @@ public class FlightConfirmationValidation {
 	System.out.println("taxInt = "+ taxInt);
 	System.out.println("totalPriceInt = "+ totalPriceInt);
 
-	//TODO Calculations
+	//Calculations
 	if(totalPriceInt==(departFlightPriceInt*noOfPassengersInt + returnFlightPriceInt*noOfPassengersInt + taxInt)){
 		System.out.println("Validation Pass :: "+ "Total Price = "+ totalPriceInt );
 	}
@@ -85,9 +89,7 @@ public class FlightConfirmationValidation {
 		System.out.println("Validation Fail :: "+ "Expected Total Price = "+ BookAFlightValidatePrice.totalPriceInt +"; Actual Total Price = "+ totalPriceInt);
 	}
 	
-	
-	driver.findElement(By.xpath(FlightConfirmation.button_Logout)).click();
-	
+	op.clickLink(driver, FlightConfirmation.button_Logout);
 	
 	}
 }

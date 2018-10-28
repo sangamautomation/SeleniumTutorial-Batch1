@@ -2,12 +2,12 @@ package testcases;
 
 import org.openqa.selenium.WebDriver;
 
-import flows.BookAFlightValidatePrice;
-import flows.FlightConfirmationValidation;
-import flows.Flights;
+import pageFlows.BookAFlightValidatePrice;
+import pageFlows.FlightConfirmationValidation;
+import pageFlows.Flights;
+import pageFlows.SelectFlightDepartReturn;
+import pageFlows.SignOn;
 import pageFlows.Register;
-import flows.SelectFlightDepartReturn;
-import flows.SignOn;
 import infrastructure.Setup;
 
 public class TC2_RegisterAndBookFlight_HybridFramework {
@@ -29,23 +29,25 @@ public class TC2_RegisterAndBookFlight_HybridFramework {
 			Register register = new Register();
 			register.registration(driver);
 			
-	/*		//Flight Finder
+			//Flight Finder
 			Flights flights = new Flights();
 			flights.flightFinder(driver);
 			
 			//Select Flight
 			new SelectFlightDepartReturn().departFlight(driver);
+			new SelectFlightDepartReturn().returnFlight(driver);
 			new SelectFlightDepartReturn().continueFlight(driver);
 			
 			//Book A Flight
-			BookAFlightValidatePrice.validatePrice(driver);
-			BookAFlightValidatePrice.passengersInfo(driver);
-			BookAFlightValidatePrice.creditCardInfo(driver);
-			
+			BookAFlightValidatePrice book = new BookAFlightValidatePrice();
+			book.validatePrice(driver);
+			book.passengersInfo(driver);
+			book.creditCardInfo(driver);
+		
 			//Flight Confirmation
-			FlightConfirmationValidation.validateFlightConfirmation(driver);
+			new FlightConfirmationValidation().validateFlightConfirmation(driver);
 			
-*/			
+			System.out.println("Test case verdict :: "+ "PASS");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

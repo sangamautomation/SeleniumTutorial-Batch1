@@ -2,12 +2,12 @@ package testcases;
 
 import org.openqa.selenium.WebDriver;
 
-import flows.BookAFlightValidatePrice;
-import flows.FlightConfirmationValidation;
-import flows.Flights;
-import flows.Register;
-import flows.SelectFlightDepartReturn;
-import flows.SignOn;
+import flows_ModularizedFramework.BookAFlightValidatePrice;
+import flows_ModularizedFramework.FlightConfirmationValidation;
+import flows_ModularizedFramework.Flights;
+import flows_ModularizedFramework.Register;
+import flows_ModularizedFramework.SelectFlightDepartReturn;
+import flows_ModularizedFramework.SignOn;
 import infrastructure.Setup;
 
 public class TC1_RegisterAndBookFlight_ModularizedFramework {

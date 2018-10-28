@@ -1,4 +1,4 @@
-package flows;
+package flows_ModularizedFramework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

@@ -31,6 +31,34 @@ public class Operations {
 		}
 	}
 
+	/**
+	 * This method will click on Radio-button with the given XPath
+	 * @param driver
+	 * @param xpathLocator
+	 */
+	public void clickRadiobutton(WebDriver driver, String xpathLocator){
+		try {
+			driver.findElement(By.xpath(xpathLocator)).click();
+			LogUtils.log("Clicked on the radiobutton for "+ xpathLocator);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * This method will click on checkbox with the given XPath
+	 * @param driver
+	 * @param xpathLocator
+	 */
+	public void clickCheckbox(WebDriver driver, String xpathLocator){
+		try {
+			driver.findElement(By.xpath(xpathLocator)).click();
+			LogUtils.log("Clicked on the checkbox for "+ xpathLocator);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
 	
 	/**
 	 * This method will type text in a textbox with the given XPath
@@ -60,7 +88,7 @@ public class Operations {
 			WebElement we = driver.findElement(By.xpath(xpathLocator));
 			Select sel = new Select(we);
 			sel.selectByVisibleText(inputText);
-			LogUtils.log("Selected value "+inputText+ " for "+ xpathLocator);
+			LogUtils.log("Selected value from dropdown "+inputText+ " for "+ xpathLocator);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -75,6 +103,7 @@ public class Operations {
 	public void waitImplicitely(WebDriver driver, int maxTimeOutInSecond){
 		try {
 			driver.manage().timeouts().implicitlyWait(maxTimeOutInSecond, TimeUnit.SECONDS);
+			LogUtils.log("Waiting implicitely for "+maxTimeOutInSecond + " seconds");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -90,6 +119,7 @@ public class Operations {
 	String text = null;
 		try {
 		 text = driver.findElement(By.xpath(xPathLocator)).getText();
+		 LogUtils.log("Getting text = "+text+ " for "+ xPathLocator);
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
