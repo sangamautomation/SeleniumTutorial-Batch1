@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import infrastructure.Operations;
 import pageObjects.*;
+import utils.ReportUtils;
 import utils.StringUtils;
 
 public class Register {
@@ -19,10 +20,10 @@ public class Register {
 
 	String expectedNote="",actualVal="";
 	String expectedUserName ="Username2";
-	
+
 	public void registration(WebDriver driver) throws Exception{
 
-	System.out.println("\n******************** Registration ********************\n");	
+		System.out.println("\n******************** Registration ********************\n");	
 		//Click Register link
 		op.clickLink(driver, Registration.link_Register);
 
@@ -49,6 +50,9 @@ public class Register {
 		op.setText(driver, Registration.textBox_UserName, expectedUserName);
 		op.setText(driver, Registration.textBox_Password, "password123");
 		op.setText(driver, Registration.textBox_ConfirmPassword, "password123");
+
+		ReportUtils.reportResult("Done", "Registration", "Registration is successful!");
+
 		op.clickLink(driver, Registration.button_Submit);
 
 		//Synchronization methods
@@ -65,16 +69,21 @@ public class Register {
 
 
 		//Note Validation
-		if(expectedNote.equals(actualNote))
-			System.out.println("PASS - "+"The Note : "+ actualNote +" is matching!");
+		boolean noteValidation = expectedNote.equals(actualNote);
+
+		if(noteValidation)
+			ReportUtils.reportResult("Pass", "Note Validation", "The Note : "+ actualNote +" is matching!");
+
 		else
-			System.out.println("FAIL - Not Matching \n"+ "Expected Note: "+expectedNote + "\n Actual Note: "+actualNote);
+			ReportUtils.reportResult("Fail", "Note Validation", "Note is Not Matching \n"+ "Expected Note: "+expectedNote + "\n Actual Note: "+actualNote);
+
+
 
 		//UserName validation
 		if(expectedUserName.equals(actualUserName))
-			System.out.println("PASS - "+"The expected Username : \n"+ expectedUserName +" is matching!");
+			ReportUtils.reportResult("Pass", "UserName Validation", "The expected Username : \n"+ expectedUserName +" is matching!");
 		else
-			System.out.println("FAIL - Not Matching \n"+ "Expected Username: "+expectedUserName +"\n Actual Username: "+actualUserName);
+			ReportUtils.reportResult("Fail", "UserName Validation", "User name is Not Matching \n"+ "Expected Username: "+expectedUserName +"\n Actual Username: "+actualUserName);
 
 	}
 

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import infrastructure.Operations;
 import pageObjects.SelectFlight;
+import utils.ReportUtils;
 
 public class SelectFlightDepartReturn {
 
@@ -22,7 +23,10 @@ public class SelectFlightDepartReturn {
 
 	public void continueFlight(WebDriver driver){
 		System.out.println("\n******************** continueFlight ********************\n");	
-		op.clickRadiobutton(driver, SelectFlight.button_Continue);
+		
+		ReportUtils.reportResult("Done", "Select Flightr", "Select Flight is successful!");
+
+		op.clickLink(driver, SelectFlight.button_Continue);
 	}
 
 }

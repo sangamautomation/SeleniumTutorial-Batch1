@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import infrastructure.Operations;
 import pageObjects.FlightConfirmation;
+import utils.ReportUtils;
 
 public class FlightConfirmationValidation {
 	
@@ -42,10 +43,16 @@ public class FlightConfirmationValidation {
 	departFlightPrice = departFlightPrice.substring(departBeginIndex, departEndIndex);
 	System.out.println("departFlightPrice="+departFlightPrice);
 	
-	//Assert Non-Null - Return Flight Price
+	//Assert Non-Null - Return Flight Price - Validation
 	boolean returnFlightPriceBoolean = returnFlightPrice.matches("[$][0-9]+"); // Use Regular Expression like ^$[0-9]*$
+	
+	
+	
 	if(returnFlightPriceBoolean)
-		System.out.println("Pass : The return flight price is displayed!");
+		ReportUtils.reportResult("Pass", "Flight Confirmation", "The return flight price is displayed!");
+	else
+		ReportUtils.reportResult("Fail", "Flight Confirmation", "The return flight price is not displayed!");
+
 	
 	// Assert equals (expected = actual)
 	int returnBeginIndex = returnFlightPrice.indexOf('$')+1; System.out.println("returnBeginIndex="+returnBeginIndex);
@@ -83,10 +90,11 @@ public class FlightConfirmationValidation {
 
 	//Calculations
 	if(totalPriceInt==(departFlightPriceInt*noOfPassengersInt + returnFlightPriceInt*noOfPassengersInt + taxInt)){
-		System.out.println("Validation Pass :: "+ "Total Price = "+ totalPriceInt );
+		ReportUtils.reportResult("Pass", "Flight Confirmation Price", "Total Price = "+ totalPriceInt );
 	}
 	else{
-		System.out.println("Validation Fail :: "+ "Expected Total Price = "+ BookAFlightValidatePrice.totalPriceInt +"; Actual Total Price = "+ totalPriceInt);
+		ReportUtils.reportResult("Fail", "Flight Confirmation Price", "Expected Total Price = "+ BookAFlightValidatePrice.totalPriceInt +"; Actual Total Price = "+ totalPriceInt );
+
 	}
 	
 	op.clickLink(driver, FlightConfirmation.button_Logout);

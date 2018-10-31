@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import infrastructure.Operations;
 import pageObjects.FlightFinder;
+import utils.ReportUtils;
 
 public class Flights {
 	
@@ -33,6 +34,9 @@ public void flightFinder(WebDriver driver){
 	
 // Preferences
 	op.clickRadiobutton(driver, FlightFinder.radiobutton_ServiceClassFirstClass);
+	
+	ReportUtils.reportResult("Done", "Flight Finder", "Flight Finder is successful!");
+
 	op.clickLink(driver, FlightFinder.button_Continue);
 	
 }

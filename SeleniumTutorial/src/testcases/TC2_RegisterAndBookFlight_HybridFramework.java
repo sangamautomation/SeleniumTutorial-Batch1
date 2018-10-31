@@ -7,6 +7,7 @@ import pageFlows.FlightConfirmationValidation;
 import pageFlows.Flights;
 import pageFlows.SelectFlightDepartReturn;
 import pageFlows.SignOn;
+import utils.ReportUtils;
 import pageFlows.Register;
 import infrastructure.Setup;
 
@@ -47,7 +48,9 @@ public class TC2_RegisterAndBookFlight_HybridFramework {
 			//Flight Confirmation
 			new FlightConfirmationValidation().validateFlightConfirmation(driver);
 			
-			System.out.println("Test case verdict :: "+ "PASS");
+			//System.out.println("Test case verdict :: "+ "PASS");
+			ReportUtils.reportResult("Pass", "Verdict", "Test case is successful!");
+		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

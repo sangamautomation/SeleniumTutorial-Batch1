@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import infrastructure.Operations;
 import pageObjects.BookAFlight;
+import utils.ReportUtils;
 
 public class BookAFlightValidatePrice {
 	Operations op = new Operations();
@@ -36,13 +37,15 @@ public class BookAFlightValidatePrice {
 		totalPrice = totalPrice.substring(1);
 		totalPriceInt = Integer.parseInt(totalPrice);
 
-		//Validation
+		//Book Flight - Validation
 
 		int departReturnFlightPrice = departFlightPriceInt+returnFlightPriceInt;
+
 		if((departReturnFlightPrice*noOfPassengersInt)+taxInt == totalPriceInt)
-			System.out.println("PASS : Total price displayed is correct!");
+			ReportUtils.reportResult("Pass", "Book A Flight - Total Price", "Total price displayed is correct!");
+
 		else
-			System.out.println("FAIL : Total price displayed is NOT correct!");
+			ReportUtils.reportResult("Fail", "Book A Flight - Total Price", "Total price displayed is NOT correct!");
 
 	}
 
@@ -71,6 +74,9 @@ public class BookAFlightValidatePrice {
 		//Checkbox Operation
 		op.clickCheckbox(driver, BookAFlight.checkbox_TicketlessTravel);
 
+		ReportUtils.reportResult("Done", "Book A Flight", "Book A Flight is successful!");
+
+	
 		//Submit
 		op.clickLink(driver, BookAFlight.button_SecurePurchase);
 
