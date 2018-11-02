@@ -8,7 +8,7 @@ package utils;
 public class LogUtils {
 	
 	public static void log(String message){
-		System.out.println(message);
+		System.out.println(DateUtils.getCurrentTimestamp("MM/dd/yyyy HH:mm:ss")+ " | "  + message);
 	}
 
 }

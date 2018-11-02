@@ -1,8 +1,5 @@
-/data/
-/flows/
-/infrastructure/
-/pageObjects/
+/setup/
 /testcases/
 /utils/
+/data/
 /pageFlows/
-/flows_ModularizedFramework/

@@ -1,5 +1,6 @@
 package pageFlows;
 
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -12,44 +13,54 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import infrastructure.Operations;
 import pageObjects.*;
+import utils.ExcelUtils;
 import utils.ReportUtils;
 import utils.StringUtils;
 
 public class Register {
 	Operations op = new Operations();
 
-	String expectedNote="",actualVal="";
-	String expectedUserName ="Username2";
+
 
 	public void registration(WebDriver driver) throws Exception{
 
+		String datapoolPath = "C:\\AutomationProjects\\SeleniumTutorial\\resource\\TestDataPool_Automation.xls";
+		String sheetName = "Automation";
+		int header=0;//Excel first row is 0
+		int tc=1;
+		
+		HashMap<String, String> rowData = ExcelUtils.getTestDataXls(datapoolPath, sheetName, header, tc);
+		
+		String expectedNote="",actualVal="";
+		String expectedUserName =rowData.get("userName");
+				
 		System.out.println("\n******************** Registration ********************\n");	
 		//Click Register link
 		op.clickLink(driver, Registration.link_Register);
 
 		// Contact Information
 
-		op.setText(driver, Registration.textBox_FirstName, "John");
-		op.setText(driver, Registration.textBox_LastName, "Doe");
-		op.setText(driver, Registration.textBox_Phone, "1231231234");
+		op.setText(driver, Registration.textBox_FirstName, rowData.get("firstName1"));
+		op.setText(driver, Registration.textBox_LastName, rowData.get("lastName1"));
+		op.setText(driver, Registration.textBox_Phone, rowData.get("phoneNumber"));
 		//driver.findElement(By.xpath(Registration.textBox_Phone)).sendKeys("122223333");
-		op.setText(driver, Registration.textBox_Email, "john@domain.com");
+		op.setText(driver, Registration.textBox_Email, rowData.get("email"));
 
 
 		//Mailing Information
-		op.setText(driver, Registration.textBox_Address1, "123 Main St");
-		op.setText(driver, Registration.textBox_Address2, "Suite# A");
-		op.setText(driver, Registration.textBox_City, "New York City");
-		op.setText(driver, Registration.textBox_StateProvince, "New York");
-		op.setText(driver, Registration.textBox_PostalCode, "11370");
+		op.setText(driver, Registration.textBox_Address1, rowData.get("address1"));
+		op.setText(driver, Registration.textBox_Address2, rowData.get("address2"));
+		op.setText(driver, Registration.textBox_City, rowData.get("city"));
+		op.setText(driver, Registration.textBox_StateProvince, rowData.get("state"));
+		op.setText(driver, Registration.textBox_PostalCode, rowData.get("zipcode"));
 
 		//Selecting Dropdown value
 		op.selectDropdown(driver, Registration.dropdown_Country, "UNITED STATES");
 
 		//User Information
 		op.setText(driver, Registration.textBox_UserName, expectedUserName);
-		op.setText(driver, Registration.textBox_Password, "password123");
-		op.setText(driver, Registration.textBox_ConfirmPassword, "password123");
+		op.setText(driver, Registration.textBox_Password, rowData.get("password"));
+		op.setText(driver, Registration.textBox_ConfirmPassword, rowData.get("password"));
 
 		ReportUtils.reportResult("Done", "Registration", "Registration is successful!");
 
@@ -59,7 +70,7 @@ public class Register {
 		op.waitImplicitely(driver, 20);
 
 		//Confirmation
-		String expectedNote = "Note: Your user name is Username2.";
+		 expectedNote = "Note: Your user name is Username2.";
 
 		String actualNote = op.getText(driver, Registration.text_Note);
 		String actualUserName = StringUtils.subString(actualNote, 24, 33);
