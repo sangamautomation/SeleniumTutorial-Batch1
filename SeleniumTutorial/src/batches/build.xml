@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. --><project basedir="." default="build" name="TestAutomation_AREEF">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="C:/Program Files (x86)/IBM/SDP"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+    <path id="RFT Libraries.libraryclasspath">
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.ibm.rational.test.ft.util_8.5.0.v20130410_2229.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.ibm.rational.test.ft.corecomponents_8.5.0.v20130429_0616.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.ibm.rational.test.ft.autbase_8.5.0.v20130410_2229.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.ibm.rational.test.ft.playback_8.5.0.v20130410_2229.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/org.eclipse.tptp.platform.models_4.6.205.v201209141700.jar"/>
+    </path>
+    <path id="RFT TestObjects.libraryclasspath">
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.ibm.rational.test.ft.domain_8.5.0.v20130508_0558.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.ibm.rational.test.ft.clientbase_8.5.0.v20130520_2027.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.ibm.rational.test.ft.domain.html.dojo.testobjects_8.5.0.v20130410_2229.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.ibm.rational.test.ft.domain.testobjects_8.5.0.v20130422_2253.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.ibm.rational.test.ft.html.sapwebportal.testobjects_8.5.0.v20130410_2229.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.ibm.rational.test.ft.sdk_8.5.0.v20130410_2229.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.ibm.test.terminal.testobjects_8.2.1.v20130410_2229.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.rational.test.ft.sap_8.5.0.v20130410_2229.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.rational.test.ft.siebel_8.5.0.v20130410_2229.jar"/>
+        <pathelement location="C:/Program Files (x86)/IBM/IBMIMShared/plugins/com.rational.test.ft.wpf_8.5.0.v20130410_2229.jar"/>
+    </path>
+    <path id="RFT Customization Libraries.libraryclasspath">
+        <pathelement location="C:/ProgramData/IBM/RFT/customization/com.ibm.terminal.tester.ft.jar"/>
+    </path>
+    <path id="SelJars.userclasspath">
+        <pathelement location="../../sel/selenium-java-2.52.0.jar"/>
+        <pathelement location="../../sel/libs/apache-mime4j-0.6.jar"/>
+        <pathelement location="../../sel/libs/bsh-2.0b4.jar"/>
+        <pathelement location="../../sel/libs/cglib-nodep-2.1_3.jar"/>
+        <pathelement location="../../sel/libs/commons-codec-1.10.jar"/>
+        <pathelement location="../../sel/libs/commons-collections-3.2.2.jar"/>
+        <pathelement location="../../sel/libs/commons-el-1.0.jar"/>
+        <pathelement location="../../sel/libs/commons-exec-1.3.jar"/>
+        <pathelement location="../../sel/libs/commons-io-2.4.jar"/>
+        <pathelement location="../../sel/libs/commons-lang3-3.4.jar"/>
+        <pathelement location="../../sel/libs/commons-logging-1.2.jar"/>
+        <pathelement location="../../sel/libs/cssparser-0.9.16.jar"/>
+        <pathelement location="../../sel/libs/gson-2.3.1.jar"/>
+        <pathelement location="../../sel/libs/guava-19.0.jar"/>
+        <pathelement location="../../sel/libs/hamcrest-core-1.3.jar"/>
+        <pathelement location="../../sel/libs/hamcrest-library-1.3.jar"/>
+        <pathelement location="../../sel/libs/htmlunit-2.18.jar"/>
+        <pathelement location="../../sel/libs/htmlunit-core-js-2.17.jar"/>
+        <pathelement location="../../sel/libs/httpclient-4.5.1.jar"/>
+        <pathelement location="../../sel/libs/httpcore-4.4.3.jar"/>
+        <pathelement location="../../sel/libs/httpmime-4.5.jar"/>
+        <pathelement location="../../sel/libs/jasper-compiler-5.5.15.jar"/>
+        <pathelement location="../../sel/libs/jasper-compiler-jdt-5.5.15.jar"/>
+        <pathelement location="../../sel/libs/jasper-runtime-5.5.15.jar"/>
+        <pathelement location="../../sel/libs/javax.servlet-api-3.1.0.jar"/>
+        <pathelement location="../../sel/libs/jcommander-1.48.jar"/>
+        <pathelement location="../../sel/libs/jetty-continuation-9.2.13.v20150730.jar"/>
+        <pathelement location="../../sel/libs/jetty-http-9.2.13.v20150730.jar"/>
+        <pathelement location="../../sel/libs/jetty-io-9.2.13.v20150730.jar"/>
+        <pathelement location="../../sel/libs/jetty-jmx-9.2.13.v20150730.jar"/>
+        <pathelement location="../../sel/libs/jetty-security-9.2.13.v20150730.jar"/>
+        <pathelement location="../../sel/libs/jetty-server-9.2.13.v20150730.jar"/>
+        <pathelement location="../../sel/libs/jetty-servlet-9.2.13.v20150730.jar"/>
+        <pathelement location="../../sel/libs/jetty-servlets-9.2.13.v20150730.jar"/>
+        <pathelement location="../../sel/libs/jetty-util-9.2.13.v20150730.jar"/>
+        <pathelement location="../../sel/libs/jna-4.1.0.jar"/>
+        <pathelement location="../../sel/libs/jna-platform-4.1.0.jar"/>
+        <pathelement location="../../sel/libs/jsp-api-2.0.jar"/>
+        <pathelement location="../../sel/libs/junit-4.12.jar"/>
+        <pathelement location="../../sel/libs/nekohtml-1.9.22.jar"/>
+        <pathelement location="../../sel/libs/netty-3.5.7.Final.jar"/>
+        <pathelement location="../../sel/libs/phantomjsdriver-1.2.1.jar"/>
+        <pathelement location="../../sel/libs/sac-1.3.jar"/>
+        <pathelement location="../../sel/libs/serializer-2.7.2.jar"/>
+        <pathelement location="../../sel/libs/testng-6.9.9.jar"/>
+        <pathelement location="../../sel/libs/websocket-api-9.2.13.v20150730.jar"/>
+        <pathelement location="../../sel/libs/websocket-client-9.2.13.v20150730.jar"/>
+        <pathelement location="../../sel/libs/websocket-common-9.2.13.v20150730.jar"/>
+        <pathelement location="../../sel/libs/xalan-2.7.2.jar"/>
+        <pathelement location="../../sel/libs/xercesImpl-2.11.0.jar"/>
+        <pathelement location="../../sel/libs/xml-apis-1.4.01.jar"/>
+    </path>
+    <path id="ExtJars.userclasspath">
+        <pathelement location="../../jars/joda-time-2.4.jar"/>
+        <pathelement location="../../jars/org.apache.commons.collections.jar"/>
+        <pathelement location="../../jars/org-apache-commons-lang.jar"/>
+        <pathelement location="../../jars/poi-3.13-20150929.jar"/>
+        <pathelement location="../../jars/poi-excelant-3.13-20150929.jar"/>
+        <pathelement location="../../jars/poi-ooxml-3.13-20150929.jar"/>
+        <pathelement location="../../jars/poi-ooxml-schemas-3.13-20150929.jar"/>
+        <pathelement location="../../jars/poi-scratchpad-3.13-20150929.jar"/>
+        <pathelement location="../../jars/xmlbeans-2.3.0.jar"/>
+        <pathelement location="../../jars/db2jcc4.jar"/>
+    	<pathelement location="../../jars/itextpdf-5.4.5.jar"/>
+    	<pathelement location="../../jars/guice-4.0.jar"/>
+    	<pathelement location="../../jars/javax-inject.jar"/>
+    	<pathelement location="../../jars/PdfToTxt.jar"/>
+    </path>
+    <path id="TestAutomation_AREEF.classpath">
+        <path refid="RFT Libraries.libraryclasspath"/>
+        <path refid="RFT TestObjects.libraryclasspath"/>
+        <path refid="RFT Customization Libraries.libraryclasspath"/>
+        <pathelement location="."/>
+        <path refid="SelJars.userclasspath"/>
+        <path refid="ExtJars.userclasspath"/>
+    </path>
+    <target name="init">
+        <copy includeemptydirs="false" todir=".">
+            <fileset dir=".">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete>
+            <fileset dir="." includes="**/*.class"/>
+        </delete>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="." includeantruntime="false" source="${source}" target="${target}">
+            <src path="."/>
+            <classpath refid="TestAutomation_AREEF.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="AT_303_E2E_HCIPxLPWxARKIDSA (3)">
+        <java classname="smokeTest.AT_303_E2E_HCIPxLPWxARKIDSA" failonerror="true" fork="yes">
+            <arg line="TST3"/>
+            <classpath refid="TestAutomation_AREEF.classpath"/>
+        </java>
+    </target>
+</project>

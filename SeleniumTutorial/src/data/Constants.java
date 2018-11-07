@@ -9,6 +9,7 @@ public class Constants {
 //	public static String screenshotFolderPath = "D:\\Selenium_Logs\\Screenshots\\";
 	public static String screenshotFolderPath = "C:\\Selenium_Logs\\Screenshots\\";
 	
+	public static String configPath = "C:/AutomationProjects/SeleniumTutorial/src/config/config.properties";
 	public static int counter = 0;
 	
 	public static String dataPool_Xls = "C:\\AutomationProjects\\SeleniumTutorial\\resource\\TestDataPool_Automation.xls"; 

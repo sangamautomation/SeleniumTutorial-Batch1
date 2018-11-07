@@ -23,7 +23,7 @@ public class TC1_RegisterAndBookFlight_ModularizedFramework {
 			String url = "http://www.newtours.demoaut.com/";
 			
 			//Setup the WebDriver
-			 driver = setup.launchBrowser(url);
+			 driver = setup.launchBrowser(url, null);
 			
 			//Registration
 			Register register = new Register();

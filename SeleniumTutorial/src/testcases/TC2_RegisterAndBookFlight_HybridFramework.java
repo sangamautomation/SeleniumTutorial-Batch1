@@ -2,12 +2,14 @@ package testcases;
 
 import org.openqa.selenium.WebDriver;
 
+import data.Constants;
 import data.TestDataPool;
 import pageFlows.BookAFlightValidatePrice;
 import pageFlows.FlightConfirmationValidation;
 import pageFlows.Flights;
 import pageFlows.SelectFlightDepartReturn;
 import pageFlows.SignOn;
+import utils.PropertyUtils;
 import utils.ReportUtils;
 import pageFlows.Register;
 import infrastructure.Setup;
@@ -24,9 +26,10 @@ public class TC2_RegisterAndBookFlight_HybridFramework {
 			//Setup
 			Setup setup = new Setup();
 			String url = "http://www.newtours.demoaut.com/";
+			String browser = PropertyUtils.propertyFile_Read(Constants.configPath, "browser");
 			
 			//Setup the WebDriver
-			 driver = setup.launchBrowser(url);
+			 driver = setup.launchBrowser(url,browser);
 			
 			//Registration
 			Register register = new Register();

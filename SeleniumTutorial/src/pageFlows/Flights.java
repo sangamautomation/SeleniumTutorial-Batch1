@@ -1,5 +1,6 @@
 package pageFlows;
 
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -8,15 +9,26 @@ import org.openqa.selenium.support.ui.Select;
 
 import infrastructure.Operations;
 import pageObjects.FlightFinder;
+import utils.ExcelUtils;
 import utils.ReportUtils;
 
 public class Flights {
 	
 	Operations op = new Operations();
 	
-public void flightFinder(WebDriver driver){
+	
+	
+public void flightFinder(WebDriver driver) throws Exception{
 	System.out.println("\n******************** Flight Finder ********************\n");	
 
+	String filePath = "C:/AutomationProjects/SeleniumTutorial/resource/TestDataPool_Automation.xls";
+	String sheetName = "Automation";
+	int headerRowNum = 0;
+	int tcRowNum = 1;
+	
+	HashMap<String,String> rowData = ExcelUtils.getTestDataXls(filePath, sheetName, headerRowNum, tcRowNum);
+	
+	
 	// Clicking on Flights link
 	op.clickLink(driver, FlightFinder.link_Flights);
 	//driver.findElement(By.xpath(FlightFinder.link_Flights)).click();
@@ -25,11 +37,11 @@ public void flightFinder(WebDriver driver){
 	
 	//Flight Finder
 	op.clickRadiobutton(driver, FlightFinder.radiobutton_FlightTypeRoundtrip);
-	op.selectDropdown(driver, FlightFinder.dropdown_Passengers, "2");
-	op.selectDropdown(driver, FlightFinder.dropdown_DepartFrom, "New York");
-	op.selectDropdown(driver, FlightFinder.dropdown_OnMonth, "November");
-	op.selectDropdown(driver, FlightFinder.dropdown_OnDay, "25");
-	op.selectDropdown(driver, FlightFinder.dropdown_ArrivingIn, "Paris");
+	op.selectDropdown(driver, FlightFinder.dropdown_Passengers, rowData.get("noOfPassengers"));
+	op.selectDropdown(driver, FlightFinder.dropdown_DepartFrom, rowData.get("departFrom"));
+	op.selectDropdown(driver, FlightFinder.dropdown_OnMonth, rowData.get("departMonth"));
+	op.selectDropdown(driver, FlightFinder.dropdown_OnDay, rowData.get("departDay"));
+	op.selectDropdown(driver, FlightFinder.dropdown_ArrivingIn, rowData.get("arrivingIn"));
 	
 	
 // Preferences

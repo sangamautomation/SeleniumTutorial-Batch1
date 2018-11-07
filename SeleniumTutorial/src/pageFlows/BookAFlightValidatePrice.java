@@ -1,5 +1,7 @@
 package pageFlows;
 
+import java.util.HashMap;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,16 +9,20 @@ import org.openqa.selenium.support.ui.Select;
 
 import infrastructure.Operations;
 import pageObjects.BookAFlight;
+import utils.ExcelUtils;
 import utils.ReportUtils;
 
 public class BookAFlightValidatePrice {
 	Operations op = new Operations();
 	static int totalPriceInt=0;
 
+	
+	
 	//Price Validation
-	public void validatePrice(WebDriver driver){
+	public void validatePrice(WebDriver driver) throws Exception{
 		System.out.println("\n********************* validatePrice *********************\n");
 
+		
 		//Capturing text
 		String departFlightPrice = op.getText(driver, BookAFlight.text_DepartFlightPrice);
 		//String departFlightPrice = driver.findElement(By.xpath(BookAFlight.text_DepartFlightPrice)).getText();
@@ -51,24 +57,42 @@ public class BookAFlightValidatePrice {
 
 
 	//Passenger
-	public void passengersInfo(WebDriver driver){
+	public void passengersInfo(WebDriver driver) throws Exception{
 		System.out.println("\n********************* passengersInfo *********************\n");
-		op.setText(driver, BookAFlight.textBox_FirstName1, "John");
-		op.setText(driver, BookAFlight.textBox_LastName1, "Doe");
-		op.setText(driver, BookAFlight.textBox_FirstName2, "Thamina");
-		op.setText(driver, BookAFlight.textBox_LastName2, "Alam");
+		
+		String filePath = "C:/AutomationProjects/SeleniumTutorial/resource/TestDataPool_Automation.xls";
+		String sheetName = "Automation";
+		int headerRowNum = 0;
+		int tcRowNum = 1;
+		
+		HashMap<String,String> rowData = ExcelUtils.getTestDataXls(filePath, sheetName, headerRowNum, tcRowNum);
+		
+		
+		op.setText(driver, BookAFlight.textBox_FirstName1, rowData.get("firstName1"));
+		op.setText(driver, BookAFlight.textBox_LastName1, rowData.get("lastName1"));
+		op.setText(driver, BookAFlight.textBox_FirstName2, rowData.get("firstName2"));
+		op.setText(driver, BookAFlight.textBox_LastName2, rowData.get("lastName2"));
 
 	}
 
 	//Credit Card
-	public void creditCardInfo(WebDriver driver){
+	public void creditCardInfo(WebDriver driver) throws Exception{
+		
+
+		String filePath = "C:/AutomationProjects/SeleniumTutorial/resource/TestDataPool_Automation.xls";
+		String sheetName = "Automation";
+		int headerRowNum = 0;
+		int tcRowNum = 1;
+		
+		HashMap<String,String> rowData = ExcelUtils.getTestDataXls(filePath, sheetName, headerRowNum, tcRowNum);
+		
 		System.out.println("\n********************* creditCardInfo *********************\n");
 
-		op.selectDropdown(driver, BookAFlight.dropdown_CreditCardType, "Discover");
-		op.setText(driver, BookAFlight.textBox_CreditCardNumber, "1234567890123456");
+		op.selectDropdown(driver, BookAFlight.dropdown_CreditCardType, rowData.get("creditCardType"));
+		op.setText(driver, BookAFlight.textBox_CreditCardNumber, rowData.get("creditCardNumber"));
 
-		op.selectDropdown(driver, BookAFlight.dropdown_CreditCardExpirationMonth, "12");
-		op.selectDropdown(driver, BookAFlight.dropdown_CreditCardExpirationYear, "2009");
+		op.selectDropdown(driver, BookAFlight.dropdown_CreditCardExpirationMonth, rowData.get("CreditCardExpirationMonth"));
+		op.selectDropdown(driver, BookAFlight.dropdown_CreditCardExpirationYear, rowData.get("CreditCardExpirationYear"));
 
 
 		//Checkbox Operation
