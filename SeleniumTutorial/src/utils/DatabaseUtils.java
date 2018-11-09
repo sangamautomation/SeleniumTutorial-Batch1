@@ -1,23 +1,26 @@
-/*package utils;
+package utils;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 
 import data.Constants;
-import infra.Configuration;
+//import infra.Configuration;
 
 public class DatabaseUtils {
 
 	public static String databaseValidation_SelectSQL(String ip, String dbname, String port, String sql1, String input1, String sql2, String input2, String sql_Suffix, String resultcolname) throws Exception
 	{
-		String  ipAddress = ip;
-		String portNumber = port;
-		String databaseName = dbname;
+		String  ipAddress = ip; //10.123.123.2
+		String portNumber = port; //1212
+		String databaseName = dbname; //CDSA124
+		String userid = "user"; //ShuklaUser
+		String password = "password"; //Password@123
+
 		
 	String username = PropertyUtils.propertyFile_Read(Constants.path_PropertyFile_config, "userid"); //automation
 		
 		String password_Encrypted = PropertyUtils.propertyFile_Read(Constants.path_PropertyFile_config, "password"); // I/mTPwYhe6w4srmtx2x/Tg\=\= 
-		String password =PasswordUtils.decryptString(password_Encrypted);
+	//	String password =PasswordUtils.decryptString(password_Encrypted);
 		
 		String sql = null;
 		String columnValue = null;
@@ -76,15 +79,15 @@ public class DatabaseUtils {
 				String sql1, String input1, String sql2, String input2, String sql_Suffix) throws Exception {
 			System.out.println("\n databaseValidation_Select");
 
-			String ldapUserID= new Configuration("D://RFT/config.properties").getProperty("ldapUserID");
-			String ldapPassword= PasswordUtils.decryptString(new Configuration("D://RFT/config.properties").getProperty("ldapPassword"));
+		//	String ldapUserID= new Configuration("D://RFT/config.properties").getProperty("ldapUserID");
+		//	String ldapPassword= PasswordUtils.decryptString(new Configuration("D://RFT/config.properties").getProperty("ldapPassword"));
 
 			//String username= new Configuration().getProperty("ldapUserID");
 			//String pwd= PasswordUtils.decryptString(new Configuration().getProperty("ldapPassword"));
-
-			String username = ldapUserID;
-			String password = ldapPassword;
-
+			String userid = "user";
+			String password = "password";
+			String username = userid;
+ 
 			int j = 0;
 			//		SELECT trim(DHSCASENUMBER) FROM CURAM1.EEFVLPRESPONSE where responsecode='EEFVLP004' and recordstatus='RST1' ORDER BY LastWritten DESC FETCH FIRST 1 ROW ONLY
 			String  sql = sql1 + "'"+ input1 +  "'"+ sql2 + "'"+ input2 + "'" + sql_Suffix;
@@ -142,15 +145,14 @@ public class DatabaseUtils {
 			String portNumber = port;
 			String databaseName = dbname;
 
-			String ldapUserID= new Configuration("D://RFT/config.properties").getProperty("ldapUserID");
-			String ldapPassword= PasswordUtils.decryptString(new Configuration("D://RFT/config.properties").getProperty("ldapPassword"));
+		//	String ldapUserID= new Configuration("D://RFT/config.properties").getProperty("ldapUserID");
+		//	String ldapPassword= PasswordUtils.decryptString(new Configuration("D://RFT/config.properties").getProperty("ldapPassword"));
 
 			//String username= new Configuration().getProperty("ldapUserID");
 			//String password= PasswordUtils.decryptString(new Configuration().getProperty("ldapPassword"));
-
-			String username = ldapUserID;
-			String password = ldapPassword;
-
+ 			String password = "password";
+			String username = "user";
+ 
 			int updateStatus = 0;
 
 			String columnValue = null;
@@ -165,7 +167,7 @@ public class DatabaseUtils {
 
 				// Creating SQL Query
 				String sql;
-				ResultSet resultset;
+				ResultSet resultset = null;
 
 				//                sql = "select STATUSCODE from curam1.concernrolealternateid where alternateid  = ('726967846')";
 				//		sql = sql1 + "'"+ input +  "'"+  ");";
@@ -188,10 +190,10 @@ public class DatabaseUtils {
 				// con.setAutoCommit(true);
 				//	con.query_update("Update CURAM1.EEFVLPRESPONSE set firstname = 'sangama' where responsecode = 'EEFVLP004' and recordstatus = 'RST1'");
 				//		resultset = con.query(sql);
-					System.out.println("resultset \n" + resultset.findColumn(resultcolname));
+		/*			System.out.println("resultset \n" + resultset.findColumn(resultcolname));
 					System.out.println("resultset \n" + resultset.toString());
 					System.out.println("resultset \n" + resultset.getString(resultcolname));
-				 
+			*/	 
 
 				//                ArrayList <String> result = new ArrayList<String>();
 
@@ -199,6 +201,8 @@ public class DatabaseUtils {
 				{
 					System.out.println("No Data Found");
 				}
+						
+						String resultcolname = "resultcolname";
 				columnValue = (resultset.getString(resultcolname));
 				 		//                  while (resultset.next()) {
 				//
@@ -242,4 +246,3 @@ public class DatabaseUtils {
 		} 
 	
 }
-*/

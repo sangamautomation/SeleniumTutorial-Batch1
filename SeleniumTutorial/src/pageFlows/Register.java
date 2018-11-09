@@ -40,6 +40,7 @@ public class Register {
 
 		// Contact Information
 
+		op.waitImplicitely(driver, 10);
 		op.setText(driver, Registration.textBox_FirstName, rowData.get("firstName1"));
 		op.setText(driver, Registration.textBox_LastName, rowData.get("lastName1"));
 		op.setText(driver, Registration.textBox_Phone, rowData.get("phoneNumber"));

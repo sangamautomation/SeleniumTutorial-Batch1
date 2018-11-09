@@ -1,4 +1,4 @@
-/*package utils;
+package utils;
 
 import java.sql.Connection;
 import java.sql.Driver;
@@ -10,11 +10,11 @@ import java.sql.Statement;
 import com.ibm.db2.jcc.DB2Driver;
 
 import data.Constants;
-import oracle.jdbc.driver.OracleDriver;
+//import oracle.jdbc.driver.OracleDriver;
 
-*//**
+/**
  *CustomDB2Connection - Base Database Connectivity
- *//*
+ */
 public class CustomDB2Connection {
 	
 	
@@ -66,20 +66,20 @@ public class CustomDB2Connection {
 		String username = PropertyUtils.propertyFile_Read(Constants.path_PropertyFile_config, "userid"); //automation
 		
 		String password_Encrypted = PropertyUtils.propertyFile_Read(Constants.path_PropertyFile_config, "password"); // I/mTPwYhe6w4srmtx2x/Tg\=\= 
-		String password =PasswordUtils.decryptString(password_Encrypted);
+//		String password =PasswordUtils.decryptString(password_Encrypted);
 		
 		try {
 			
-		//	Driver driver = new DB2Driver();
-			Driver driver = new OracleDriver();
-			//Driver driver = new MySQLDriver();
+		 	Driver driver = new DB2Driver();
+		//	Driver driver = new OracleDriver();
+		//	 Driver driver = new MySQLDriver();
 			
 			DriverManager.registerDriver(driver);
 			System.out.println("Driver loaded successfully!");
 			
 			String str = "jdbc:db2://"+ipAddress+":"+portNumber+"/"+databaseName; // "jdbc:db2://109.10.34.8:60000/coredb"
 			
-			connection = DriverManager.getConnection(str, username,password ); // Connect to db
+			connection = DriverManager.getConnection(str, username,"Password" ); // Connect to db
 //			conn.ConnectionString = 
 //		              "Driver=OraOLEDB.Oracle;" + 
 //		              "Data Source=ServerName;" + 
@@ -133,4 +133,4 @@ public class CustomDB2Connection {
 		connection = null;
 		
 	}
-}*/
+}
