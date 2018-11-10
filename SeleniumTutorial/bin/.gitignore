@@ -1,3 +1,6 @@
 /utils/
 /testcases/
 /config/
+/infrastructure/
+/pageObjects/
+/setup/

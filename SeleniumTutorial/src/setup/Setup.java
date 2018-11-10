@@ -1,52 +1,47 @@
-package infrastructure;
+package setup;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
 
 public class Setup {
 
 
-	public WebDriver launchBrowser(String url, String browser){
-		//Create Static WebDriver
+	public static WebDriver launchBrowser(String url, String browser){
 
 		WebDriver driver = null;
 		try {
-			if(browser.equals("chrome")){
 
+			switch (browser) {
+			case "chrome":
 				System.setProperty("webdriver.chrome.driver","C:\\drivers\\chromedriver.exe");
 				driver = new ChromeDriver();
-
-				driver.get(url);
-				driver.manage().window().maximize();
-			}
-			else if(browser.equals("firefox")){
-
+				break;
+			case "firefox":
 				System.setProperty("webdriver.gecko.driver","C:\\drivers\\geckodriver.exe");
 				driver = new FirefoxDriver();
-
-				driver.get(url);
-				driver.manage().window().maximize();
-			}
-
-			else if(browser.equals("edge")){
-
+				break;
+			case "edge":
 				System.setProperty("webdriver.edge.driver","C:\\drivers\\MicrosoftWebDriver.exe");
 				driver = new EdgeDriver();
-
-				driver.get(url);
-				driver.manage().window().maximize();
-			}
-			else if(browser.equals("ie")){
-
+				break;
+			case "ie":
 				System.setProperty("webdriver.ie.driver","C:\\drivers\\IEWebDriver.exe");
 				driver = new InternetExplorerDriver();
-
-				driver.get(url);
-				driver.manage().window().maximize();
+				break;
+			case "opera":
+				System.setProperty("webdriver.opera.driver","C:\\drivers\\operadriver.exe");
+				driver = new OperaDriver();
+			default:
+				System.out.println("The mentioned browser type is not defined!");
+				break;
 			}
+			driver.get(url);
+			driver.manage().window().maximize();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

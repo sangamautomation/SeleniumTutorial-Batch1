@@ -9,10 +9,10 @@ import pageFlows.FlightConfirmationValidation;
 import pageFlows.Flights;
 import pageFlows.SelectFlightDepartReturn;
 import pageFlows.SignOn;
+import setup.Setup;
 import utils.PropertyUtils;
 import utils.ReportUtils;
 import pageFlows.Register;
-import infrastructure.Setup;
 
 public class TC2_RegisterAndBookFlight_HybridFramework {
 
@@ -24,12 +24,11 @@ public class TC2_RegisterAndBookFlight_HybridFramework {
 		
 		try {
 			//Setup
-			Setup setup = new Setup();
 			String url = "http://www.newtours.demoaut.com/";
 			String browser = PropertyUtils.propertyFile_Read(Constants.configPath, "browser");
 			
 			//Setup the WebDriver
-			 driver = setup.launchBrowser(url,browser);
+			 driver = Setup.launchBrowser(url,browser);
 			
 			//Registration
 			Register register = new Register();

@@ -8,7 +8,7 @@ import flows_ModularizedFramework.Flights;
 import flows_ModularizedFramework.Register;
 import flows_ModularizedFramework.SelectFlightDepartReturn;
 import flows_ModularizedFramework.SignOn;
-import infrastructure.Setup;
+import setup.Setup;
 
 public class TC1_RegisterAndBookFlight_ModularizedFramework {
 
